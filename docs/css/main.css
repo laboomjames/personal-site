@@ -6,6 +6,8 @@
     --accent: #3182ce;
     --card-light: #f8f8f8;
     --card-dark: #1f1f1f;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {

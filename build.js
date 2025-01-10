@@ -2,6 +2,9 @@ const fs = require('fs-extra');
 const path = require('path');
 const { marked } = require('marked');
 
+// Base path for GitHub Pages
+const BASE_PATH = '/personal-site';
+
 // Ensure build directories exist
 fs.ensureDirSync(path.join(__dirname, 'docs'));
 fs.ensureDirSync(path.join(__dirname, 'docs/blog'));
@@ -23,14 +26,14 @@ const pageTemplate = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="${BASE_PATH}/css/main.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-            <a href="/projects">Projects</a>
+            <a href="${BASE_PATH}/">Home</a>
+            <a href="${BASE_PATH}/blog">Blog</a>
+            <a href="${BASE_PATH}/projects">Projects</a>
         </nav>
     </header>
     <main>
@@ -43,10 +46,14 @@ const pageTemplate = `
 // Function to convert markdown to HTML and save
 async function buildPage(sourcePath, outputPath, title) {
     const content = await fs.readFile(sourcePath, 'utf-8');
-    const html = marked(content);
+    // Add base path to markdown links
+    const htmlContent = marked(content)
+        .replace(/href="\//g, `href="${BASE_PATH}/`);
+    
     const finalHtml = pageTemplate
         .replace('{{title}}', title)
-        .replace('{{content}}', html);
+        .replace('{{content}}', htmlContent);
+    
     await fs.writeFile(outputPath, finalHtml);
 }
 
