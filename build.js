@@ -6,6 +6,7 @@ const { marked } = require('marked');
 fs.ensureDirSync(path.join(__dirname, 'docs'));
 fs.ensureDirSync(path.join(__dirname, 'docs/blog'));
 fs.ensureDirSync(path.join(__dirname, 'docs/projects'));
+fs.ensureDirSync(path.join(__dirname, 'docs/pages'));
 fs.ensureDirSync(path.join(__dirname, 'docs/css'));
 
 // Basic template for pages
@@ -15,15 +16,23 @@ const pageTemplate = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} - SSK's Coding Journey</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-        <a href="/projects">Projects</a>
-    </nav>
+    <header>
+        <div class="header-content">
+            <div class="site-title">
+                <a href="/">Your Site</a>
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/pages/about">About</a>
+                <a href="/pages/faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
     <main>
         {{content}}
     </main>
@@ -42,6 +51,25 @@ async function buildPage(sourcePath, outputPath, title) {
     await fs.writeFile(outputPath, finalHtml);
 }
 
+// Function to build all pages in a directory
+async function buildPagesInDirectory(sourceDir, outputDir) {
+    try {
+        const files = await fs.readdir(sourceDir);
+        for (const file of files) {
+            if (file.endsWith('.md')) {
+                const title = file.replace('.md', '');
+                await buildPage(
+                    path.join(sourceDir, file),
+                    path.join(outputDir, file.replace('.md', '.html')),
+                    title
+                );
+            }
+        }
+    } catch (error) {
+        console.error(`Error building pages in ${sourceDir}:`, error);
+    }
+}
+
 // Main build process
 async function build() {
     try {
@@ -52,11 +80,15 @@ async function build() {
             'Home'
         );
 
-        // Build blog index
+        // Build blog index and posts
         await buildPage(
             path.join(__dirname, 'src/content/blog/index.md'),
             path.join(__dirname, 'docs/blog/index.html'),
             'Blog'
+        );
+        await buildPagesInDirectory(
+            path.join(__dirname, 'src/content/blog'),
+            path.join(__dirname, 'docs/blog')
         );
 
         // Build projects page
@@ -64,6 +96,12 @@ async function build() {
             path.join(__dirname, 'src/content/projects/index.md'),
             path.join(__dirname, 'docs/projects/index.html'),
             'Projects'
+        );
+
+        // Build other pages
+        await buildPagesInDirectory(
+            path.join(__dirname, 'src/content/pages'),
+            path.join(__dirname, 'docs/pages')
         );
 
         // Copy static assets

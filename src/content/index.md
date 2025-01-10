@@ -1,16 +1,15 @@
-# SSK's Journey into Coding with AI
+# Welcome to My Site
 
-Welcome to my journey into coding with AI! My name is SSK, and I'm diving into the world of programming from scratch, with absolutely no prior coding experience. This website is my public diary, where I'll document every step of this exciting adventure.
+This is a simple, fast, and modern website built with basic web technologies. No frameworks, no complexity - just clean, efficient code.
 
-## Purpose
+## Features
 
-The aim is to learn how to code, specifically focusing on integrating AI into web development, and to share this learning process with others who might be in the same boat or just curious about how someone with no background can start coding.
+- **Blog Posts**: Read my thoughts and articles
+- **About Page**: Learn more about me
+- **FAQ**: Common questions answered
+- **Clean Design**: Simple and responsive layout
+- **Fast Loading**: No heavy frameworks or libraries
 
-## What to Expect
+## Recent Posts
 
-You'll find updates on my progress, challenges I face, solutions I find, and most importantly, my growth from a total beginner to, hopefully, a competent coder. I'll be transparent about my struggles and triumphs, providing a real-world view of learning to code.
-
-## Quick Links
-
-- [Read My Blog](/blog) - Follow my learning journey
-- [View My Projects](/projects) - See what I'm building 
+Check out my latest blog posts in the blog section. 
