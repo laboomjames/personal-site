@@ -1,15 +1,29 @@
-# Welcome to My Site
+# Welcome
 
-This is a simple, fast, and modern website built with basic web technologies. No frameworks, no complexity - just clean, efficient code.
+Learning to code with Nat Eliason.
 
-## Features
-
-- **Blog Posts**: Read my thoughts and articles
-- **About Page**: Learn more about me
-- **FAQ**: Common questions answered
-- **Clean Design**: Simple and responsive layout
-- **Fast Loading**: No heavy frameworks or libraries
+<div class="icon-links">
+<a href="/blog">
+<pre>
++-----+
+| [_] |
+| /_/ |
+|_____|
+ BLOG
+</pre>
+</a>
+<a href="/projects">
+<pre>
++-----+
+|  _  |
+| |_| |
+|_____|
+PROJECTS
+</pre>
+</a>
+</div>
 
 ## Recent Posts
 
-Check out my latest blog posts in the blog section. 
+- [Getting Started with HTML and CSS](/blog/first-steps) - My first steps into web development
+- [Setting Up My Development Environment](/blog/dev-setup) - How I set up my coding workspace 

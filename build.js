@@ -21,17 +21,13 @@ const pageTemplate = `
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="site-title">
-                <a href="/">Your Site</a>
-            </div>
-            <nav>
-                <a href="/">Home</a>
+        <nav>
+            <a href="/" class="home">SSK</a>
+            <div class="nav-links">
                 <a href="/blog">Blog</a>
-                <a href="/pages/about">About</a>
-                <a href="/pages/faq">FAQ</a>
-            </nav>
-        </div>
+                <a href="/projects">Projects</a>
+            </div>
+        </nav>
     </header>
     <main>
         {{content}}
@@ -107,6 +103,7 @@ async function build() {
         // Copy static assets
         await fs.copy(path.join(__dirname, 'src/styles/main.css'), path.join(__dirname, 'docs/css/main.css'));
         await fs.copy(path.join(__dirname, 'src/scripts/main.js'), path.join(__dirname, 'docs/js/main.js'));
+        await fs.copy(path.join(__dirname, 'src/images'), path.join(__dirname, 'docs/images'));
 
         console.log('Site built successfully!');
     } catch (error) {
