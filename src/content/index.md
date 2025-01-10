@@ -1,19 +1,16 @@
-# Welcome to My Site
+# SSK's Journey into Coding with AI
 
-This is a simple static site built with Markdown and Node.js.
+Welcome to my journey into coding with AI! My name is SSK, and I'm diving into the world of programming from scratch, with absolutely no prior coding experience. This website is my public diary, where I'll document every step of this exciting adventure.
 
-## Recent Blog Posts
+## Purpose
 
-- [Getting Started with Static Sites](/blog/getting-started)
-- [Why I Love Markdown](/blog/why-markdown)
+The aim is to learn how to code, specifically focusing on integrating AI into web development, and to share this learning process with others who might be in the same boat or just curious about how someone with no background can start coding.
 
-## About This Site
+## What to Expect
 
-This site is built using a simple static site generator that converts Markdown to HTML. It's perfect for:
+You'll find updates on my progress, challenges I face, solutions I find, and most importantly, my growth from a total beginner to, hopefully, a competent coder. I'll be transparent about my struggles and triumphs, providing a real-world view of learning to code.
 
-- Personal blogs
-- Project documentation
-- Simple business websites
-- Portfolio sites
+## Quick Links
 
-[Learn more about me](/pages/about) or check out the [FAQ](/pages/faq) for common questions. 
+- [Read My Blog](/blog) - Follow my learning journey
+- [View My Projects](/projects) - See what I'm building 
