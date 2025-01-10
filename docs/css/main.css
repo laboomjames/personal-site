@@ -1,19 +1,16 @@
 /* Base styles */
 body {
-    font-family: monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: #333;
-    background: #f5f5f5;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='15' font-family='monospace' font-size='15'%3E~ * ~%3C/text%3E%3Ctext x='10' y='30' font-family='monospace' font-size='15'%3E/|\\%3C/text%3E%3Ctext x='0' y='45' font-family='monospace' font-size='15'%3E~ * ~%3C/text%3E%3C/svg%3E");
+    color: #1a1a1a;
+    background: #fff;
 }
 
 /* Header */
 header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
+    padding: 2rem 0;
     margin-bottom: 2rem;
 }
 
@@ -22,131 +19,113 @@ nav {
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 3rem;
     align-items: center;
 }
 
-.home {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-family: monospace;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
 nav a {
-    color: #333;
+    color: #1a1a1a;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-    font-family: monospace;
+    font-weight: 500;
+    transition: opacity 0.2s;
 }
 
 nav a:hover {
-    color: #666;
+    opacity: 0.7;
 }
 
 /* Main content */
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border: 2px solid #333;
-    border-radius: 4px;
-    box-shadow: 4px 4px 0 #333;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* Typography */
 h1 {
     font-size: 2.5rem;
     margin: 0 0 1rem;
-    color: #333;
+    color: #1a1a1a;
     text-align: center;
-    font-family: monospace;
+    font-weight: 700;
 }
 
 h2 {
-    font-size: 1.8rem;
-    margin: 3rem 0 1rem;
-    color: #444;
+    font-size: 1.5rem;
+    margin: 4rem 0 1.5rem;
+    color: #1a1a1a;
     text-align: center;
-    font-family: monospace;
+    font-weight: 600;
+}
+
+p {
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
 }
 
 /* Icon links */
 .icon-links {
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 3rem;
     margin: 3rem 0;
-    font-family: monospace;
 }
 
 .icon-links a {
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #1a1a1a;
     transition: transform 0.2s;
-    padding: 1rem;
-    border: 2px solid #333;
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 4px 4px 0 #333;
-    width: 120px;
+    gap: 0.5rem;
 }
 
 .icon-links a:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #333;
+    transform: translateY(-2px);
 }
 
-.icon-links pre {
+.icon-links span {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-links p {
     margin: 0;
-    font-size: 12px;
-    line-height: 1;
-    white-space: pre;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Recent Posts */
 main ul {
     list-style: none;
     padding: 0;
-    max-width: 600px;
-    margin: 2rem auto;
+    margin: 2rem 0;
 }
 
 main ul li {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: #fff;
-    border: 2px solid #333;
-    border-radius: 4px;
-    box-shadow: 4px 4px 0 #333;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-radius: 12px;
     transition: transform 0.2s;
 }
 
 main ul li:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #333;
+    transform: translateY(-2px);
 }
 
 /* Links */
 a {
-    color: #333;
+    color: #1a1a1a;
     text-decoration: none;
-    font-weight: bold;
 }
 
 a:hover {
-    text-decoration: none;
-    color: #666;
+    color: #4a4a4a;
 }
 
 /* Responsive design */
@@ -160,7 +139,6 @@ a:hover {
     }
     
     main {
-        margin: 1rem;
-        padding: 1rem;
+        padding: 0 1.5rem;
     }
 } 

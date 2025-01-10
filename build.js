@@ -22,17 +22,14 @@ const pageTemplate = `
 <body>
     <header>
         <nav>
-            <a href="/" class="home">SSK</a>
-            <div class="nav-links">
-                <a href="/blog">Blog</a>
-                <a href="/projects">Projects</a>
-            </div>
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
         </nav>
     </header>
     <main>
         {{content}}
     </main>
-    <script src="/js/main.js"></script>
 </body>
 </html>
 `;

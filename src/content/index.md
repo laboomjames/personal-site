@@ -4,22 +4,12 @@ Learning to code with Nat Eliason.
 
 <div class="icon-links">
 <a href="/blog">
-<pre>
-+-----+
-| [_] |
-| /_/ |
-|_____|
- BLOG
-</pre>
+<span>📝</span>
+<p>Blog</p>
 </a>
 <a href="/projects">
-<pre>
-+-----+
-|  _  |
-| |_| |
-|_____|
-PROJECTS
-</pre>
+<span>💻</span>
+<p>Projects</p>
 </a>
 </div>
 
