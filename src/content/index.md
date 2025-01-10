@@ -16,4 +16,4 @@ This site is built using a simple static site generator that converts Markdown t
 - Simple business websites
 - Portfolio sites
 
-[Learn more about me](/about) or check out the [FAQ](/faq) for common questions. 
+[Learn more about me](/pages/about) or check out the [FAQ](/pages/faq) for common questions. 

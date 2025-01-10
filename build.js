@@ -33,33 +33,47 @@ const pageTemplate = `
 </html>
 `;
 
-// Function to convert markdown to HTML
-async function buildPages() {
-    const contentDir = path.join(__dirname, 'src/content');
-    const files = await fs.readdir(contentDir);
+// Function to build pages from a directory
+async function buildPagesFromDir(sourceDir, outputDir) {
+    const files = await fs.readdir(sourceDir);
     
     for (const file of files) {
         if (file.endsWith('.md')) {
-            const content = await fs.readFile(path.join(contentDir, file), 'utf-8');
+            const content = await fs.readFile(path.join(sourceDir, file), 'utf-8');
             const html = marked(content);
             const title = file.replace('.md', '');
-            
-            let outputPath;
-            if (file === 'index.md') {
-                outputPath = path.join(__dirname, 'docs', 'index.html');
-            } else if (file.startsWith('blog-')) {
-                outputPath = path.join(__dirname, 'docs/blog', file.replace('blog-', '').replace('.md', '.html'));
-            } else {
-                outputPath = path.join(__dirname, 'docs/pages', file.replace('.md', '.html'));
-            }
             
             const finalHtml = pageTemplate
                 .replace('{{title}}', title)
                 .replace('{{content}}', html);
             
+            const outputPath = path.join(outputDir, file.replace('.md', '.html'));
             await fs.writeFile(outputPath, finalHtml);
         }
     }
+}
+
+// Function to convert markdown to HTML
+async function buildPages() {
+    // Build main pages
+    const indexContent = await fs.readFile(path.join(__dirname, 'src/content/index.md'), 'utf-8');
+    const indexHtml = marked(indexContent);
+    await fs.writeFile(
+        path.join(__dirname, 'docs/index.html'),
+        pageTemplate.replace('{{title}}', 'Home').replace('{{content}}', indexHtml)
+    );
+
+    // Build blog posts
+    await buildPagesFromDir(
+        path.join(__dirname, 'src/content/blog'),
+        path.join(__dirname, 'docs/blog')
+    );
+
+    // Build other pages
+    await buildPagesFromDir(
+        path.join(__dirname, 'src/content/pages'),
+        path.join(__dirname, 'docs/pages')
+    );
 }
 
 // Copy static assets
