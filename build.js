@@ -3,11 +3,10 @@ const path = require('path');
 const { marked } = require('marked');
 
 // Ensure build directories exist
-fs.ensureDirSync(path.join(__dirname, 'docs'));
-fs.ensureDirSync(path.join(__dirname, 'src/content'));
-fs.ensureDirSync(path.join(__dirname, 'src/templates'));
-fs.ensureDirSync(path.join(__dirname, 'src/styles'));
-fs.ensureDirSync(path.join(__dirname, 'src/scripts'));
+fs.ensureDirSync(path.join(__dirname, 'dist'));
+fs.ensureDirSync(path.join(__dirname, 'dist/blog'));
+fs.ensureDirSync(path.join(__dirname, 'dist/css'));
+fs.ensureDirSync(path.join(__dirname, 'dist/pages'));
 
 // Basic template for pages
 const pageTemplate = `
@@ -17,19 +16,19 @@ const pageTemplate = `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <nav>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
-        <a href="/about">About</a>
-        <a href="/faq">FAQ</a>
+        <a href="/pages/about">About</a>
+        <a href="/pages/faq">FAQ</a>
     </nav>
     <main>
         {{content}}
     </main>
-    <script src="/scripts/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
 `;
@@ -45,11 +44,19 @@ async function buildPages() {
             const html = marked(content);
             const title = file.replace('.md', '');
             
+            let outputPath;
+            if (file === 'index.md') {
+                outputPath = path.join(__dirname, 'dist', 'index.html');
+            } else if (file.startsWith('blog-')) {
+                outputPath = path.join(__dirname, 'dist/blog', file.replace('blog-', '').replace('.md', '.html'));
+            } else {
+                outputPath = path.join(__dirname, 'dist/pages', file.replace('.md', '.html'));
+            }
+            
             const finalHtml = pageTemplate
                 .replace('{{title}}', title)
                 .replace('{{content}}', html);
             
-            const outputPath = path.join(__dirname, 'docs', file.replace('.md', '.html'));
             await fs.writeFile(outputPath, finalHtml);
         }
     }
@@ -57,8 +64,8 @@ async function buildPages() {
 
 // Copy static assets
 async function copyStatic() {
-    await fs.copy(path.join(__dirname, 'src/styles'), path.join(__dirname, 'docs/styles'));
-    await fs.copy(path.join(__dirname, 'src/scripts'), path.join(__dirname, 'docs/scripts'));
+    await fs.copy(path.join(__dirname, 'src/styles/main.css'), path.join(__dirname, 'dist/css/main.css'));
+    await fs.copy(path.join(__dirname, 'src/scripts/main.js'), path.join(__dirname, 'dist/js/main.js'));
 }
 
 // Main build process
