@@ -1,37 +1,36 @@
-# Projects
+<div>
+![Code Editor](/images/cyberpunk.jpg)
+<div>
 
-Here are some of the projects I've been working on while learning to code:
+## CYBERPUNK BREATHING
+An immersive breathing exercise application with a futuristic cyberpunk aesthetic, designed to promote mindfulness.
 
-<div class="project-grid">
-  <a href="https://github.com/laboomjames/Cyberpunk-Breathing" class="project-card">
-    <h3>🌟 Cyberpunk Breathing</h3>
-    <p>A cyberpunk-themed breathing exercise app that helps users practice mindful breathing with a futuristic interface.</p>
-    <div class="project-tech">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-    </div>
-  </a>
-
-  <a href="https://github.com/laboomjames/pomodoro-timer" class="project-card">
-    <h3>⏱️ Pomodoro Timer</h3>
-    <p>A minimalist Pomodoro timer application to help manage work sessions and breaks effectively.</p>
-    <div class="project-tech">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-    </div>
-  </a>
-
-  <a href="https://github.com/laboomjames/personal-site" class="project-card">
-    <h3>🌐 Personal Website</h3>
-    <p>This website! A static site built to document my coding journey and showcase my projects.</p>
-    <div class="project-tech">
-      <span>Node.js</span>
-      <span>Markdown</span>
-      <span>CSS</span>
-    </div>
-  </a>
+🌟
+</div>
 </div>
 
-[Back to Home](/) 
+---
+
+<div>
+![Timer](/images/pomodoro.jpg)
+<div>
+
+## POMODORO TIMER
+A minimalist Pomodoro timer application to help manage work sessions and breaks effectively.
+
+⏱️
+</div>
+</div>
+
+---
+
+<div>
+![Website](/images/architecture.jpg)
+<div>
+
+## PERSONAL WEBSITE
+A static site generator built with Node.js, featuring markdown support and automated builds.
+
+🌐
+</div>
+</div> 

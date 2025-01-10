@@ -1,25 +1,23 @@
-# SSK's Coding Journal
+<div>
+![Code Editor](/images/code-editor.jpg)
+<div>
 
-Welcome to my coding journal! Here, I document my journey learning to code with AI. Each entry represents real experiences, challenges, and breakthroughs.
+## GETTING STARTED
+My first steps into web development, exploring HTML structure and CSS styling techniques.
 
-## Latest Entries
+🔍
+</div>
+</div>
 
-### Getting Started with HTML and CSS
-*January 9, 2024*
+---
 
-My first steps into web development. Today I learned about basic HTML structure and CSS styling. [Read more](/blog/first-steps)
+<div>
+![Development Setup](/images/dev-setup.jpg)
+<div>
 
-### Setting Up My Development Environment
-*January 8, 2024*
+## DEVELOPMENT ENVIRONMENT
+Setting up a professional development environment with modern tools and best practices.
 
-How I set up VS Code, GitHub, and other essential tools for coding. [Read more](/blog/dev-setup)
-
-## Categories
-
-- HTML/CSS
-- JavaScript
-- AI Integration
-- Challenges
-- Solutions
-
-[Back to Home](/) 
+⚙️
+</div>
+</div> 
