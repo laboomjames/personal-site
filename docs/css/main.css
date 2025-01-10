@@ -241,4 +241,76 @@ a:hover {
 
 main > * {
     animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.project-card {
+    background: var(--card-light);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .project-card {
+        background: var(--card-dark);
+        color: var(--text-dark);
+    }
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--shadow-light);
+}
+
+.project-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.project-card p {
+    margin: 0 0 1.5rem;
+    text-align: left;
+    opacity: 0.8;
+    flex-grow: 1;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.project-tech span {
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
 } 
