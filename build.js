@@ -3,7 +3,7 @@ const path = require('path');
 const { marked } = require('marked');
 
 // Ensure build directories exist
-fs.ensureDirSync(path.join(__dirname, 'public'));
+fs.ensureDirSync(path.join(__dirname, 'docs'));
 fs.ensureDirSync(path.join(__dirname, 'src/content'));
 fs.ensureDirSync(path.join(__dirname, 'src/templates'));
 fs.ensureDirSync(path.join(__dirname, 'src/styles'));
@@ -49,7 +49,7 @@ async function buildPages() {
                 .replace('{{title}}', title)
                 .replace('{{content}}', html);
             
-            const outputPath = path.join(__dirname, 'public', file.replace('.md', '.html'));
+            const outputPath = path.join(__dirname, 'docs', file.replace('.md', '.html'));
             await fs.writeFile(outputPath, finalHtml);
         }
     }
@@ -57,8 +57,8 @@ async function buildPages() {
 
 // Copy static assets
 async function copyStatic() {
-    await fs.copy(path.join(__dirname, 'src/styles'), path.join(__dirname, 'public/styles'));
-    await fs.copy(path.join(__dirname, 'src/scripts'), path.join(__dirname, 'public/scripts'));
+    await fs.copy(path.join(__dirname, 'src/styles'), path.join(__dirname, 'docs/styles'));
+    await fs.copy(path.join(__dirname, 'src/scripts'), path.join(__dirname, 'docs/scripts'));
 }
 
 // Main build process
